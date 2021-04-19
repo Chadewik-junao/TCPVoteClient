@@ -6,8 +6,6 @@ public class TCPVoteMsg implements Serializable {
     //自定义实体类，作为对象数据流传输，需要继承java.io.Serializable，使用对象进行序列化
 
     private int statusCode;
-
-
     //状态码
 
     private List<Vote> voteList;
