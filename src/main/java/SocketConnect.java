@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-
+//套接字连接
 public class SocketConnect {
 
     private String Addr = "127.0.0.1";
