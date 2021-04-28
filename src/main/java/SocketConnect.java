@@ -1,37 +1,50 @@
 import javax.swing.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
+
 //套接字连接
 public class SocketConnect {
 
     private String Addr = "127.0.0.1";
     private int Port = 10086;
     private Socket sock;
-    private OutputStream outStream;
-    private InputStream inStream;
+    private ObjectOutputStream outputStream;
+    private ObjectInputStream inputStream;
 
     public SocketConnect() {
+
         try {
             sock = new Socket(Addr, Port);
-            outStream = sock.getOutputStream();
-            inStream=sock.getInputStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public Socket getConnect() {
         return sock;
     }
 
-    public OutputStream getOutputStream() {
-        return outStream;
+    public ObjectOutputStream getOutputStream() {
+        if (outputStream == null) {
+            try {
+                outputStream = new ObjectOutputStream(sock.getOutputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return outputStream;
     }
 
-    public InputStream getInStream() {
-        return inStream;
+    public ObjectInputStream getinputStream() {
+        if (inputStream == null) {
+            try {
+                inputStream = new ObjectInputStream(sock.getInputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return inputStream;
     }
 
     public int getPort() {
