@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 
@@ -11,6 +10,11 @@ public class SocketConnect {
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
 
+    public void close() throws IOException{
+        outputStream.close();
+        inputStream.close();
+        sock.close();
+    }
     public SocketConnect() {
 
         try {
