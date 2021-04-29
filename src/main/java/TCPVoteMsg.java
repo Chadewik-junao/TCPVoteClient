@@ -1,10 +1,9 @@
 import java.io.Serializable;
 import java.util.List;
 
-public class   TCPVoteMsg implements Serializable {
-
+public class TCPVoteMsg implements Serializable {
     //自定义实体类，作为对象数据流传输，需要继承java.io.Serializable，使用对象进行序列化
-
+    private static final long serialVersionUID = 111;
     private int statusCode;
     //状态码
     private String voteId;
@@ -27,6 +26,27 @@ public class   TCPVoteMsg implements Serializable {
         this.candidateId = candidateId;
     }
 
+    public TCPVoteMsg(int statusCode, String voteId, List<Vote> voteList) {
+        this.statusCode = statusCode;
+        this.voteId = voteId;
+        this.voteList = voteList;
+    }
+
+    public TCPVoteMsg(int statusCode, String voteId, String candidateId, List<Candidate> candidateList) {
+        this.statusCode = statusCode;
+        this.voteId = voteId;
+        this.candidateId = candidateId;
+        this.candidateList = candidateList;
+    }
+
+    public String getVoteId() {
+        return voteId;
+    }
+
+    public String getCandidateId() {
+        return candidateId;
+    }
+
 
     public int getStatusCode() {
         return statusCode;
@@ -40,15 +60,8 @@ public class   TCPVoteMsg implements Serializable {
         return voteList;
     }
 
-    public void setVoteList(List<Vote> voteList) {
-        this.voteList = voteList;
-    }
-
     public List<Candidate> getCandidateList() {
         return candidateList;
     }
 
-    public void setCandidateList(List<Candidate> candidateList) {
-        this.candidateList = candidateList;
-    }
 }

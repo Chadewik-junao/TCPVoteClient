@@ -9,8 +9,8 @@ public class VoteClient {
         SocketConnect socket=new SocketConnect();
         ObjectOutputStream outputStream = socket.getOutputStream();
         InputStream inputStream =socket.getinputStream();
-        outputStream.writeObject(new TCPVoteMsg(201));
-        outputStream.writeObject(new TCPVoteMsg(201));
+        outputStream.writeObject(new TCPVoteMsg(301,"001"));
+        outputStream.writeObject(new TCPVoteMsg(201,"001","00101"));
         outputStream.writeObject(new TCPVoteMsg(-1));
     }
 }
