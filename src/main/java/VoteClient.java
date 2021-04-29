@@ -1,6 +1,5 @@
-import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 //主类，程序入口
@@ -8,9 +7,13 @@ public class VoteClient {
     public static void main(String args[]) throws Exception{
         SocketConnect socket=new SocketConnect();
         ObjectOutputStream outputStream = socket.getOutputStream();
-        InputStream inputStream =socket.getinputStream();
+        ObjectInputStream inputStream =socket.getinputStream();
         outputStream.writeObject(new TCPVoteMsg(301,"001"));
-        outputStream.writeObject(new TCPVoteMsg(201,"001","00101"));
-        outputStream.writeObject(new TCPVoteMsg(-1));
+        TCPVoteMsg serverMsg=(TCPVoteMsg)inputStream.readObject();
+        System.out.println(serverMsg.getStatusCode());
+//        outputStream.writeObject(new TCPVoteMsg(201,"001","00101"));
+//        serverMsg=(TCPVoteMsg)inputStream.readObject();
+//        System.out.println(serverMsg.getStatusCode());
+//        outputStream.writeObject(new TCPVoteMsg(-1));
     }
 }

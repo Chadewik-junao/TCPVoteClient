@@ -1,5 +1,7 @@
+import java.io.Serializable;
+
 //候选者类
-public class Candidate {
+public class Candidate implements Serializable {
     private String voteId;//投票id
     private String candidateId;//候选人编号
     private String candidateName;//候选人名字
