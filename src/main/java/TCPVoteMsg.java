@@ -4,7 +4,10 @@ import java.util.List;
 
 
 public class TCPVoteMsg implements Serializable {
-    private static final long serialVersionUID = 111L;
+    private static final long serialVersionUID = 9999L;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
     //自定义实体类，作为对象数据流传输，需要继承java.io.Serializable，使用对象进行序列化
 
     //private static final long serialVersionUID = 1111;
@@ -15,7 +18,6 @@ public class TCPVoteMsg implements Serializable {
     private List<Vote> voteList;
     private List<Candidate> candidateList;
     private Voter voter;
-
 
 
     //状态码，查询全部投票；服务端返回消息
@@ -75,6 +77,21 @@ public class TCPVoteMsg implements Serializable {
         return candidateList;
     }
 
-    public Voter getVoter() { return voter; }
+    public Voter getVoter() {
+        return voter;
+    }
+
+    public void setVoteList(List<Vote> voteList) {
+        this.voteList = voteList;
+    }
+
+    public void setCandidateList(List<Candidate> candidateList) {
+        this.candidateList = candidateList;
+    }
+
+    public void setVoter(Voter voter) {
+        this.voter = voter;
+    }
+
 
 }

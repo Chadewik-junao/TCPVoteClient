@@ -16,7 +16,6 @@ public class SocketConnect {
         sock.close();
     }
     public SocketConnect() {
-
         try {
             sock = new Socket(Addr, Port);
         } catch (IOException e) {

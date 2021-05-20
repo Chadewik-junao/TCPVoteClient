@@ -7,6 +7,8 @@ public class Vote implements Serializable {
     private String voteName;//投票名
     private Date startDate, StopDate;//起止时间
     private int allVotes;//总票数
+    private static final long serialVersionUID = 8888L;
+
 
     public String getVoteId() {
         return voteId;
