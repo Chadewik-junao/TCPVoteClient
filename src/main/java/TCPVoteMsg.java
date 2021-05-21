@@ -5,6 +5,13 @@ import java.util.List;
 
 public class TCPVoteMsg implements Serializable {
     private static final long serialVersionUID = 9999L;
+
+    public TCPVoteMsg(int statusCode, String voteId, Voter voter) {
+        this.statusCode=statusCode;
+        this.voteId=voteId;
+        this.voter=voter;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

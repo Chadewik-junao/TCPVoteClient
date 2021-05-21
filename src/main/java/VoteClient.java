@@ -10,14 +10,15 @@ public class VoteClient {
         ObjectOutputStream outputStream=socket.getOutputStream();
         ObjectInputStream inputStream =socket.getinputStream();
 //        ObjectInputStream inputStream =socket.getinputStream();
+//        outputStream.writeObject(new TCPVoteMsg(101));
+        new ClientUI(outputStream,inputStream);
 //        while (true) {
-            outputStream.writeObject(new TCPVoteMsg(101,"001"));
-//            inputStream.readObject();
-            TCPVoteMsg serverMsg=(TCPVoteMsg)inputStream.readObject();
-//            TCPVoteMsg recall=(TCPVoteMsg)inputStream.readObject();
-            System.out.println(serverMsg.getStatusCode());
+//            outputStream.writeObject(new TCPVoteMsg(101));
+////            inputStream.readObject();
+//            TCPVoteMsg serverMsg=(TCPVoteMsg)inputStream.readObject();
+////            TCPVoteMsg recall=(TCPVoteMsg)inputStream.readObject();
+//            System.out.println(serverMsg.getStatusCode());
 //        }
-        socket.close();
 
 
 //        outputStream.writeObject(new TCPVoteMsg(201,"001","00101"));
